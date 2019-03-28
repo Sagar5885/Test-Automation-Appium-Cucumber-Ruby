@@ -1,0 +1,102 @@
+Download xcod
+Download android studio - https://developer.android.com/studio
+update bash file with: - open .bash_profile
+export ANDROID_HOME="/Users/sdodia/Library/Android/sdk"
+export PATH="${PATH}:/$ANDROID_HOME/platform-tools:/$ANDROID_HOME/tools:/$ANDROID_HOME/tools/bin/"
+
+[-------- your overall bash_prifle --------]
+
+# Setting PATH for Python 3.6
+# The original version is saved in .bash_profile.pysave
+export M2_HOME=/usr/local/apache-maven-3.5.2
+export M2=$M2_HOME/bin
+export JAVA_HOME=/Library/java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre
+export PATH=$M2:$JAVA_HOME/bin:$PATH
+PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+export PATH
+
+# added by Anaconda3 5.1.0 installer
+export PATH="/anaconda3/bin:$PATH"
+export PATH=${PATH}:/usr/local/mysql/bin/
+export ANDROID_HOME="/Users/sdodia/Library/Android/sdk"
+export PATH="${PATH}:/$ANDROID_HOME/platform-tools:/$ANDROID_HOME/tools:/$ANDROID_HOME/tools/bin/"
+
+[------ ****** ---------]
+
+Check run commands:
+adb
+uiautomatorviewer
+
+Intall cucumber and appium
+sudo gem install cucumber
+sudo gem install appium_lib
+sudo gem install pry
+
+Open New project with Android Studio and Select plan project and select an install android version (we select 7) and finish
+installation.
+
+Download appium: https://github.com/appium/appium-desktop/releases/tag/v1.10.0
+Download rubymine: https://www.jetbrains.com/ruby/download/#section=mac
+
+more commands:
+adb devices
+adb install PreciseUnitConversion.apk
+adb shell pm list packages - Gives all applications (Get your application package name)
+adb shell pm path com.android.chrome - (that returns - package:/system/app/Chrome/Chrome.apk)
+adb pull /system/app/Chrome/Chrome.apk
+adb shell dumpsys window windows | grep -E 'mCurrentFocus|mFocusedApp'
+
+
+Run test from terminal - command: 
+cucumber 
+cucumber -t @default
+cucumber -t @home_screen
+cucumber -t @home_screen -t @conversions
+cucumber -t @home_screen,@conversions
+cucumber -p custom
+cucumber -p any
+cucumber -p strict
+cucumber -p home
+
+dry run just check un implemented steps
+cucumber --dry-run
+
+gem command:
+gem list
+for uninstall command - gem uninstall #lib_name
+for install command - gem install #lib_name
+
+https://vysor.io/
+
+command to open automator viewer:
+uiautomatorviewer
+click on 'take screen shot button' to find elements for automation for app ui
+
+Terminal rb arrays:
+irb
+ar = ["", "", ""]
+quit - come out of irb
+
+
+
+
+cucumber yml file:
+#custom: -t @custom_conversions --format html --out report.html --format pretty
+#home: -t @home_screen --format html --out report.html --format pretty
+#main: -t @main_manu --format html --out report.html --format pretty
+#
+#any: -t @custom_conversions,@home_screen --format html --out report.html --format pretty
+#strict: -t @custom_conversions -t @home_screen --format html --out report.html --format pretty
+
+
+Download Jenkins:
+https://jenkins.io/download/
+Generic Java package (.war) or Mac (OS)
+
+Start - java -jar jenkins.war
+
+Simple job in your local: Create new job with basic and just in 'build' - select Execute shell and put bellow command:
+/Users/sdodia/Desktop/android_automation
+cucumber -p wip
+
+Save job and run build
